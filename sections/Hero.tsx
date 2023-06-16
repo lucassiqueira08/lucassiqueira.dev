@@ -3,7 +3,6 @@
 import {
   slideIn,
   staggerContainer,
-  textContainer,
   textVariant,
 } from "~/utils/motion";
 import { motion } from "framer-motion";
