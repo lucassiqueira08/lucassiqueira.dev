@@ -1,4 +1,4 @@
-export const exploreWorlds = [
+export const exploreWorlds: { id: string, imgUrl: string, title: string }[] = [
   {
     id: 'world-1',
     imgUrl: '/planet-01.png',
@@ -25,6 +25,7 @@ export const exploreWorlds = [
     title: 'Hawkins Labs',
   },
 ];
+
 
 export const startingFeatures = [
   'Find a world that suits you and you want to enter',

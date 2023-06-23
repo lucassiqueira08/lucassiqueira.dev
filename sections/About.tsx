@@ -43,7 +43,6 @@ const About = () => (
         className="mt-[28px] h-[20px] w-[18px] object-contain"
       ></motion.img>
     </motion.div>
-    About section
   </section>
 );
 
