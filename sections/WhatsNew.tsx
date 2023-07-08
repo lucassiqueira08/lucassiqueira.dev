@@ -10,7 +10,7 @@ import { newFeatures } from "~/constants";
 const WhatsNew = () => (
   <section className={`${styles.paddings} relative z-10`}>
     <motion.div
-      variants={staggerContainer}
+      variants={{ ...staggerContainer }}
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}
@@ -21,7 +21,7 @@ const WhatsNew = () => (
         className="flex flex-[0.75] flex-col justify-center"
       >
         <TypingText title="| What's New?" />
-        <TypingText title={<>What's new about Metaversus?</>} />
+        <TypingText title={<>What&apos;s new about Metaversus?</>} />
         <div className="mt-[48px] flex flex-wrap justify-between gap-[24px]">
           {newFeatures.map((feature) => (
             <NewFeatures key={feature.title} {...feature} />

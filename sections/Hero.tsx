@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Variants, motion } from "framer-motion";
 
 import { slideIn, staggerContainer, textVariant } from "~/utils/motion";
 import styles from "~/styles";
@@ -8,7 +8,7 @@ import styles from "~/styles";
 const Hero = () => (
   <section className={`${styles.yPaddings} pl-6 sm:pl-16`}>
     <motion.div
-      variants={staggerContainer}
+      variants={{ ...staggerContainer }}
       initial="hidden"
       whileInView={"show"}
       viewport={{ once: false, amount: 0.25 }}
