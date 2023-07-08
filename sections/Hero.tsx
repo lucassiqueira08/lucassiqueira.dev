@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { slideIn, staggerContainer, textVariant } from "~/utils/motion";
@@ -34,14 +33,14 @@ const Hero = () => (
         className="relative -mt-[12px] w-full md:-mt-[20px]"
       >
         <div className="hero-gradient absolute -top-[30px] z-[0] h-[300px] w-full rounded-tl-[140px]" />
-        <Image
+        <img
           src="/cover.png"
           alt="cover"
           className="relative z-10 h-[350px] w-full rounded-tl-[140px] object-cover sm:h-[500px]"
         />
         <a href="#explore">
           <div className="relative z-10 -mt-[50px] flex w-full justify-end pr-[40px] sm:-mt-[70px]">
-            <Image
+            <img
               src="/stamp.png"
               alt="stamp"
               className="h-[100px] w-[100px] object-contain sm:h-[155px] sm:w-[155px]"

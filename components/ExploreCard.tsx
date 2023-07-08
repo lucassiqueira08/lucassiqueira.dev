@@ -1,6 +1,5 @@
 "use client";
 
-import Image from 'next/image'
 import { motion } from "framer-motion";
 
 import styles from "~/styles";
@@ -28,7 +27,7 @@ const ExploreCard = ({
     } flex h-[700px] min-w-[170px] cursor-pointer items-center justify-center transition-[flex] duration-[0.7s] ease-out-flex`}
     onClick={() => handleClick(id)}
   >
-    <Image
+    <img
       src={imgUrl}
       alt={title}
       className="absolute h-full w-full rounded-[24px] object-cover"
@@ -47,7 +46,7 @@ const ExploreCard = ({
         <div
           className={`${styles.flexCenter} glassmorphism mb-[16px] h-[60px] w-[60px] rounded-[24px]`}
         >
-          <Image
+          <img
             src="/headset.svg"
             alt="headset"
             className="h-1/2 w-1/2 object-contain"
