@@ -9,7 +9,7 @@ import { ExploreCard, TitleText, TypingText } from "~/components";
 import { exploreWorlds } from "~/constants";
 
 const Explore = () => {
-  const [active, setActive] = useState("world-2");
+  const [active, setActive] = useState<string>("world-2");
 
   return (
     <section className={`${styles.paddings}`} id="explore">
@@ -37,7 +37,7 @@ const Explore = () => {
               {...world}
               index={index}
               active={active}
-              handleClick={setActive}
+              handleClick={(id) => setActive(id)}
             />
           ))}
         </div>

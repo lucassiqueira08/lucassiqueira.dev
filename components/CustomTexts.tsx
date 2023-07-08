@@ -4,21 +4,27 @@ import { motion } from "framer-motion";
 import { textContainer, textVariant2 } from "~/utils/motion";
 
 export const TypingText = ({
-  title,
-  textStyles,
+  title = '',
+  textStyles = '',
 }: {
-  title: string;
-  textStyles: string;
+  title: string | React.ReactNode;
+  textStyles?: string;
 }) => (
   <motion.p
     variants={textContainer}
     className={`text-[14px] font-normal text-secondary-white ${textStyles}`}
   >
-    {Array.from(title).map((letter, index) => (
-      <motion.span variants={textVariant2} key={index}>
-        {letter === " " ? "\u00A0" : letter}
-      </motion.span>
-    ))}
+    {typeof title === 'string' ? (
+      <>
+        {Array.from(title).map((letter, index) => (
+          <motion.span variants={textVariant2} key={index}>
+            {letter === " " ? "\u00A0" : letter}
+          </motion.span>
+        ))}
+      </>
+    ) : (
+      <TitleText title={title} textStyles={textStyles} />
+    )}
   </motion.p>
 );
 

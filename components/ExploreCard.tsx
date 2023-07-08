@@ -18,7 +18,7 @@ const ExploreCard = ({
   title: string;
   index: number;
   active: string;
-  handleClick: (id: string) => null;
+  handleClick: (id: string) => void;
 }) => (
   <motion.div
     variants={fadeIn("right", "spring", index * 0.5, 0.75)}
