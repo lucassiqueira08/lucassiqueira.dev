@@ -1,6 +1,7 @@
 import { Footer, Navbar } from "../components";
 import {
   About,
+  Console,
   Explore,
   Feedback,
   GetStarted,
@@ -14,7 +15,8 @@ const Page = () => (
   <div className="bg-primary-black overflow-hidden">
     <Navbar />
     <Hero />
-    <div className="relative">
+    <Console />
+    {/* <div className="relative">
       <About />
       <div className="gradient-03 z-0"/>
       <Explore />
@@ -29,7 +31,7 @@ const Page = () => (
       <Insights />
       <div className="gradient-04 z-0"/>
       <Feedback />
-    </div>
+    </div> */}
     <Footer />
   </div>
 );
