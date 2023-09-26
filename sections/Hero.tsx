@@ -29,7 +29,7 @@ const Hero = () => (
       <div className="relative z-10 flex flex-col items-center justify-center">
         <motion.div
           variants={textVariant(1.2)}
-          className="flex flex-col items-center justify-center mt-10"
+          className="mt-10 flex flex-col items-center justify-center"
         >
           <motion.h1 variants={textVariant(1.1)} className={styles.heroHeading}>
             Welcome
@@ -39,8 +39,13 @@ const Hero = () => (
           </motion.h1>
         </motion.div>
       </div>
-      <div className="relative flex justify-center align-text-top mb-20">
-        <a className="text-gray-300 font-bold text-sm underline leading-10" href="mailto:lucassiqueira.dev@gmail.com">Contact me</a>
+      <div className="relative mb-20 flex justify-center align-text-top">
+        <a
+          className="mt-2 rounded-3xl bg-fuchsia-700 px-4 text-sm font-bold leading-10 text-gray-300"
+          href="mailto:lucassiqueira.dev@gmail.com"
+        >
+          Contact me
+        </a>
       </div>
     </motion.div>
   </section>

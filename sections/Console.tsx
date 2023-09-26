@@ -18,8 +18,8 @@ const Console = () => (
         variants={slideIn("back", "tween", 0.2, 1)}
         className="relative mt-[12px] w-full md:-mt-[20px]"
       >
-        <div className="hero-gradient opacity-8 absolute -top-[30px] z-[0] h-[300px] w-full rounded-l-[140px]" />
-        <div className="relative rounded-bl-[50px] rounded-tl-[160px] bg-black">
+        <div className="hero-gradient opacity-8 absolute -top-[30px] z-[0] h-[300px] w-full rounded-l-[140px] rounded-r-[20px]" />
+        <div className="relative rounded-bl-[50px] rounded-tl-[160px] rounded-r-[20px] bg-black">
           <motion.div
             variants={textVariant(1.2)}
             className="align-center relative top-[40px] z-10 flex h-[350px] w-full flex-col justify-start gap-8 object-cover pl-20 sm:h-[500px]"
@@ -28,19 +28,22 @@ const Console = () => (
               variants={textVariant(1.2)}
               className="flex flex-col text-xl font-extrabold text-gray-300"
             >
-              <span>{"> Software Engineer"}</span>
-              <span className="pl-4 pb-4"></span>
-              <span className="pl-4 pb-2"> {"|- Full Stack Developer"}</span>
-              <span className="pl-8 pb-2"> {"|- Javascript"}</span>
-              <span className="pl-8 pb-2"> {"|- Python"}</span>
-              <span className="pl-8 pb-2"> {"|- Node.js"}</span>
-              <span className="pl-8"> {"|- React"}</span>
+              <span className="text-[#34acc7]">{"> Software Engineer"}</span>
+              <span className="pl-4 pb-2"></span>
+              <span className="pl-4 pb-2 text-fuchsia-300"> {"⌙ Full Stack Developer"}</span>
+              <span className="pl-8 pb-2"> {"⌙ Javascript / Typescript"}</span>
+              <span className="pl-12 pb-2"> {"⎻ Node.js"}</span>
+              <span className="pl-12 pb-2"> {"⎻ React.js"}</span>
+
+              <span className="pl-8 pb-2"> {"⌙ Python"}</span>
+              <span className="pl-12 pb-2"> {"⎻ Django"}</span>
+              <span className="pl-12 pb-1"> {"⎻ Flask"}</span>
             </motion.p>
             <motion.p
               variants={textVariant(1.4)}
               className="flex flex-col text-xl font-extrabold text-gray-300"
             >
-              <span className="pl-4 pb-4"> {"|- Tech Lead"}</span>
+              <span className="pl-4 pb-4 text-fuchsia-300"> {"⌙ Tech Lead"}</span>
             </motion.p>
             <motion.p
               variants={textVariant(1.5)}

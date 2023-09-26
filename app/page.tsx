@@ -11,17 +11,24 @@ import {
   World,
 } from "../sections";
 
+import { type Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Lucas | Dev',
+  description: 'Welcome to my personal website, check out my journey and my thoughts on software development.',
+}
+
 const Page = () => (
-  <div className="bg-primary-black overflow-hidden">
+  <div className="overflow-hidden bg-primary-black">
     <Navbar />
     <Hero />
-    <Console />
-    {/* <div className="relative">
-      <About />
-      <div className="gradient-03 z-0"/>
-      <Explore />
-    </div>
+    <About />
     <div className="relative">
+      <Console />
+      <div className="gradient-03 z-0" />
+      {/* <Explore /> */}
+    </div>
+    {/* <div className="relative">
       <GetStarted />
       <div className="gradient-04 z-0"/>
       <WhatsNew />

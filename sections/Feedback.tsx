@@ -2,7 +2,7 @@
 
 const Feedback = () => (
   <section>
-    Feedback section
+    Ask me about anything you want, including development matters.
   </section>
 );
 
