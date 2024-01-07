@@ -9,7 +9,7 @@ const RootLayout = ({ children }: never) => (
         href="https://stijndv.com/fonts/Eudoxus-Sans.css"
       />
     </head>
-    <body>{children}</body>
+    <body className="bg-primary-black">{children}</body>
   </html>
 );
 

@@ -71,7 +71,7 @@ export default function Page({ params }: { params: { slug: string[] } }) {
     description,
   };
   return (
-    <>
+    <div className="h-full min-h-[100vh]">
       <PostLayout
         content={mainContent}
         authorsList={authors}
@@ -83,6 +83,6 @@ export default function Page({ params }: { params: { slug: string[] } }) {
           dangerouslySetInnerHTML={{ __html: marked.parse(post.content, {}) }}
         />
       </PostLayout>
-    </>
+    </div>
   );
 }

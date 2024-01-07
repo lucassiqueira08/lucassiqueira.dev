@@ -1,32 +1,37 @@
-import { type ReactNode } from 'react'
-import { siteMetadata } from '~/lib/metadata'
-import PageTitle from './PageTitle'
-import SectionContainer from './SectionContainer'
-import Link from 'next/link'
+import { type ReactNode } from "react";
+import { siteMetadata } from "~/lib/metadata";
+import PageTitle from "./PageTitle";
+import SectionContainer from "./SectionContainer";
+import Link from "next/link";
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-}
-
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
 
 interface LayoutProps {
   content: {
-      path: string;
-      date: string;
-      title: string
-  }
+    path: string;
+    date: string;
+    title: string;
+  };
   authorsList: string[];
-  next: { path?: string; title?: string }
-  prev: { path?: string; title?: string }
-  children: ReactNode
+  next: { path?: string; title?: string };
+  prev: { path?: string; title?: string };
+  children: ReactNode;
 }
 
-export default function PostLayout({ content, next, authorsList, prev, children }: LayoutProps) {
-  const { date, title } = content
-  const basePath = '/blog'
+export default function PostLayout({
+  content,
+  next,
+  authorsList,
+  prev,
+  children,
+}: LayoutProps) {
+  const { date, title } = content;
+  const basePath = "/blog";
 
   return (
     <SectionContainer>
@@ -39,7 +44,10 @@ export default function PostLayout({ content, next, authorsList, prev, children 
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                     <time dateTime={date}>
-                      {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
+                      {new Date(date).toLocaleDateString(
+                        siteMetadata.locale,
+                        postDateTemplate
+                      )}
                     </time>
                   </dd>
                 </div>
@@ -58,7 +66,9 @@ export default function PostLayout({ content, next, authorsList, prev, children 
                     <li className="flex items-center space-x-2" key={author}>
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">
                         <dt className="sr-only">Name</dt>
-                        <dd className="text-gray-900 dark:text-gray-100">{author}</dd>
+                        <dd className="text-gray-900 dark:text-gray-100">
+                          {author}
+                        </dd>
                       </dl>
                     </li>
                   ))}
@@ -66,7 +76,9 @@ export default function PostLayout({ content, next, authorsList, prev, children 
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
+              <div className="prose dark:prose-invert max-w-none pb-8 pt-10">
+                {children}
+              </div>
             </div>
             <footer>
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
@@ -95,19 +107,19 @@ export default function PostLayout({ content, next, authorsList, prev, children 
                   </div>
                 )}
               </div>
-              <div className="pt-4 xl:pt-8">
-                <Link
-                  href={`${basePath}`}
-                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                  aria-label="Back to the blog"
-                >
-                  &larr; Back to the blog
-                </Link>
-              </div>
             </footer>
           </div>
         </div>
+        <div className="p-2 pt-4 xl:pt-8">
+          <Link
+            href={`${basePath}`}
+            className="hover:text-primary-600 dark:hover:text-primary-400 text-gray-200"
+            aria-label="Back to the blog"
+          >
+            &larr; Back to the blog
+          </Link>
+        </div>
       </article>
     </SectionContainer>
-  )
+  );
 }

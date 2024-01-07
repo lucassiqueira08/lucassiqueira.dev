@@ -16,21 +16,21 @@ function Blog() {
     currentPage: pageNumber,
     totalPages: Math.ceil(allPostsData.length / POSTS_PER_PAGE),
   };
+
   return (
-    <div>
-      <ul>
-        {initialDisplayPosts?.map(({ id, date, title }) => (
-          <li key={id}>
-            {title}
-            <br />
-            {id}
-            <br />
-            {date}
-          </li>
-        ))}
-      </ul>
+    <div className="bg-primary-black h-inherit w-full flex flex-col gap-2 pt-8 p-8">
       <div>
-        {pagination.currentPage}/{pagination.totalPages}
+        {initialDisplayPosts?.map(({ id, date, title, description, slug }) => (
+          <div key={id} className="py-4">
+            <a href={`/blog/${slug}`} className="text-purple-200 text-2xl hover:text-purple-500 hover:underline">{title}</a>
+            <p className="text-gray-200 text-sm py-2 text-justify">{description}</p>
+            <span className="text-gray-100 text-xs opacity-70">{date}</span>
+          </div>
+        ))}
+      </div>
+      <div className="flex gap-2 justify-start items-center">
+        <span className="text-white">Page</span>
+        <p className="text-white">{pagination.currentPage}/{pagination.totalPages}</p>
       </div>
     </div>
   );
