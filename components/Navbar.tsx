@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { socials } from "~/constants";
 
 import styles from "~/styles";
@@ -19,15 +20,18 @@ const Navbar = () => (
         Lucas Siqueira <span className="align-middle text-sm">| Dev</span>
       </h2>
       <div className="flex gap-4">
+        <Link href={'/blog'}>
+          <span className="text-white font-bold decoration-1">Blog</span>
+        </Link>
         {socials.map((social) => (
-          <a href={social.link} target="blank" key={social.name}>
+          <Link href={social.link} target="blank" key={social.name}>
             <img
               key={social.name}
               src={social.url}
               alt={social.name}
               className="h-[24px] w-[24px] cursor-pointer object-contain"
             />
-          </a>
+          </Link>
         ))}
       </div>
     </div>
