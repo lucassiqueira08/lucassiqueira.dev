@@ -16,7 +16,7 @@ export function generateMetadata({
     return;
   }
 
-  const { authors } = postMetadata;
+  const { authors, tags } = postMetadata;
 
   const post = getPostsData(`${slug}.md`);
   const { title, description, date } = post;
@@ -34,6 +34,7 @@ export function generateMetadata({
       publishedTime: publishedAt,
       url: "./",
       authors,
+      tags,
     },
   } as Metadata;
 }
@@ -57,7 +58,7 @@ export default function Page({ params }: { params: { slug: string[] } }) {
 
   const post = getPostsData(`${slug}.md`);
   const { title, description, date } = post;
-  const { authors } = postMetadata;
+  const { authors, tags } = postMetadata;
   const publishedAt = new Date(date).toISOString();
 
   const postIndex = allPosts.indexOf(postMetadata);
@@ -75,11 +76,12 @@ export default function Page({ params }: { params: { slug: string[] } }) {
       <PostLayout
         content={mainContent}
         authorsList={authors}
+        tags={tags}
         next={{ path: next?.slug, title: next?.title }}
         prev={{ path: prev?.slug, title: prev?.title }}
       >
         <div
-          className="overflow-w-auto max-w-full whitespace-pre-wrap font-sans text-sm font-normal text-gray-500"
+          className="overflow-w-auto max-w-full whitespace-pre-wrap font-sans text-sm font-normal text-gray-200"
           dangerouslySetInnerHTML={{ __html: marked.parse(post.content, {}) }}
         />
       </PostLayout>

@@ -12,17 +12,23 @@ interface PostData {
 }
 type PostMetadata = {
   slug: string;
-  authors: string[];
-  date: string;
   title: string;
+  authors: string[];
+  tags: string[];
 };
 
 export const allPosts: PostMetadata[] = [
   {
     slug: "pre-rendering",
     authors: ["Lucas Siqueira"],
-    date: new Date().toISOString(),
     title: "pre-rendering",
+    tags: ["#rendering", "#nextjs", "#web"],
+  },
+  {
+    slug: "rendering",
+    authors: ["Lucas Siqueira"],
+    title: "rendering",
+    tags: ["#prerendering", "#nextjs", "#web"],
   },
 ];
 
