@@ -30,8 +30,9 @@ export default function DashboardLayout({
               </span>
             </a>
           </div>
-          {/* <nav></nav> */}
-          {children}
+          <div className="flex justify-center">
+            {children}
+          </div>
         </section>
       </div>
       <Footer />

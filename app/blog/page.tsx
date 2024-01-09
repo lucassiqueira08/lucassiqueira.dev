@@ -18,7 +18,7 @@ function Blog() {
   };
 
   return (
-    <div className="bg-primary-black h-inherit w-full flex flex-col gap-2 pt-8 p-8">
+    <div className="bg-primary-black h-inherit w-full items-center max-w-[1280px] flex flex-col gap-2 pt-8 p-8">
       <div>
         {initialDisplayPosts?.map(({ id, date, title, description, slug }) => (
           <div key={id} className="py-4">
@@ -30,7 +30,7 @@ function Blog() {
       </div>
       <div className="flex gap-2 justify-start items-center">
         <span className="text-white">Page</span>
-        <p className="text-white">{pagination.currentPage}/{pagination.totalPages}</p>
+        <p className="text-white">{pagination.currentPage} - {pagination.totalPages}</p>
       </div>
     </div>
   );
