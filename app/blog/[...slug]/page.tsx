@@ -13,7 +13,7 @@ export async function generateMetadata({
 }): Promise<Metadata | undefined> {
   const slug = decodeURI(params.slug.join("/"));
   const post = await getPostData(slug);
-  if (!post || !post.date) return;
+  if (!post || !post.date || post.draft) return;
 
   const publishedAt = new Date(post.date).toISOString();
 
@@ -99,7 +99,7 @@ export default async function Page({
         next={{ path: next?.slug, title: next?.title }}
         prev={{ path: prev?.slug, title: prev?.title }}
       >
-        <div className="overflow-w-auto max-w-full whitespace-pre-wrap font-sans text-sm font-normal text-gray-200">
+        <div className="overflow-x-auto max-w-full whitespace-pre-wrap font-sans text-sm font-normal">
           {rendered}
         </div>
       </PostLayout>
