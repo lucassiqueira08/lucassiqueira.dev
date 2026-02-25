@@ -4,7 +4,7 @@ import styles from "../styles";
 const Footer = () => (
   <footer className="py-6 border-t border-[#e5e5e5] mt-16">
     <div className={`${styles.innerWidth} flex justify-between items-center`}>
-      <p className="text-sm text-[#737373]">© 2025 Lucas Siqueira</p>
+      <p className="text-sm text-[#737373]">© {new Date().getFullYear()} Lucas Siqueira</p>
       <div className="flex gap-4">
         {socials.map((social) => (
           <a
