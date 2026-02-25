@@ -22,7 +22,7 @@ export const experience = [
   },
   {
     company: "Pagar.me",
-    role: "Software Engineer",
+    role: "Senior Software Engineer",
     period: "2021 – 2024",
     description:
       "Worked on the receivables anticipation team — Pagar.me's most profitable product — at a Stone Co. subsidiary (NASDAQ: STNE) processing R$367B+ in annual payments across 2.5M+ merchants. Owned the diagnosis and fix for a critical anticipation route triggering long-query alerts at scale; improved performance by 90%. Delivered a tax optimization mechanism saving R$23M per month. Built the fee calculator end-to-end (back and front) — a public tool that lets merchants simulate anticipation fees across all card brands and installment plans.",
@@ -30,10 +30,39 @@ export const experience = [
   },
   {
     company: "Sky.One",
-    role: "Technical Lead",
+    role: "Full Stack Developer → Technical Lead",
     period: "2019 – 2021",
     description:
-      "Joined as a junior and earned a promotion to Technical Lead across three products. Maintained AutoSky (ERP-to-cloud migration platform). Joined the IntegraSky team and helped take the iPaaS product from beta to production. Then led a team of four engineers to build the Customer Portal from scratch — a self-service platform integrating SAP, Zoho CRM, and internal systems into a single source of truth for 25,000+ clients. Grew from Python-only to full-stack (React, TypeScript, NestJS) entirely within this company.",
+      "Joined as an entry-level developer and left as Technical Lead — growing across three products in ~2.3 years. Went from Python-only backend to full-stack (React, TypeScript, NestJS) and from feature maintenance to greenfield technical leadership.",
+    phases: [
+      {
+        role: "Full Stack Developer",
+        period: "Aug 2019 – Apr 2021",
+        projects: [
+          {
+            name: "AutoSky",
+            description:
+              "Maintained ERP-to-cloud migration platform; first exposure to microservices, RabbitMQ, and containerization.",
+          },
+          {
+            name: "IntegraSky",
+            description:
+              "Part of the team that took the iPaaS product from beta to production; expanded from Python to React and Node.js on the job.",
+          },
+        ],
+      },
+      {
+        role: "Technical Lead",
+        period: "May – Nov 2021",
+        projects: [
+          {
+            name: "Customer Portal",
+            description:
+              "Led the build of a self-service platform for a client base that now exceeds 25,000 companies, integrating SAP and Zoho CRM; managed a team of 4 engineers through the full delivery cycle.",
+          },
+        ],
+      },
+    ],
     skills: ["TypeScript", "NestJS", "ReactJS", "Redux", "TypeORM", "Python", "Docker", "AWS", "RabbitMQ"],
   },
   {
