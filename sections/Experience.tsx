@@ -15,9 +15,18 @@ const Experience = () => (
           >
             <div className="flex items-baseline justify-between gap-4">
               <div className="flex items-baseline gap-2 min-w-0">
-                <span className="text-sm font-medium text-[#171717] shrink-0">
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm font-medium text-[#171717] shrink-0 inline-flex items-center gap-0.5 hover:text-[#737373] transition-colors duration-150"
+                >
                   {item.company}
-                </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 17L17 7" />
+                    <path d="M7 7h10v10" />
+                  </svg>
+                </a>
                 <span className="text-sm text-[#737373] truncate">{item.role}</span>
               </div>
               <span className="text-sm text-[#737373] shrink-0">{item.period}</span>

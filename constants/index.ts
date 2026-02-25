@@ -14,6 +14,7 @@ export const socials = [
 export const experience = [
   {
     company: "Tela",
+    url: "https://www.linkedin.com/company/withtela",
     role: "Product Engineer",
     period: "2024 – present",
     summary: "Building AI agents and workflow automations for enterprises.",
@@ -23,6 +24,7 @@ export const experience = [
   },
   {
     company: "Pagar.me",
+    url: "https://www.linkedin.com/company/pagar-me",
     role: "Senior Software Engineer",
     period: "2021 – 2024",
     summary: "Engineered core features at Brazil's Stripe equivalent.",
@@ -32,6 +34,7 @@ export const experience = [
   },
   {
     company: "Sky.One",
+    url: "https://www.linkedin.com/company/skyoneplataform",
     role: "Full Stack Developer → Technical Lead",
     period: "2019 – 2021",
     summary: "Grew from developer to Technical Lead across three cloud products.",
@@ -70,6 +73,7 @@ export const experience = [
   },
   {
     company: "Tivit",
+    url: "https://www.linkedin.com/company/tivit/",
     role: "Junior Software Developer",
     period: "2018 – 2019",
     summary: "First engineering role — built multi-cloud management at enterprise scale.",

@@ -19,16 +19,10 @@ type PostMetadata = {
 
 export const allPosts: PostMetadata[] = [
   {
-    slug: "pre-rendering",
+    slug: "hello-world",
     authors: ["Lucas Siqueira"],
-    title: "pre-rendering",
-    tags: ["#rendering", "#nextjs", "#web"],
-  },
-  {
-    slug: "rendering",
-    authors: ["Lucas Siqueira"],
-    title: "rendering",
-    tags: ["#prerendering", "#nextjs", "#web"],
+    title: "Hello World",
+    tags: [],
   },
 ];
 

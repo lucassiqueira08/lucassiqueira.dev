@@ -1,4 +1,4 @@
-import { Footer, Navbar } from "../components";
+import { Footer } from "../components";
 import { About, Experience, Hero } from "../sections";
 
 import { type Metadata } from "next";
@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 
 const Page = () => (
   <div>
-    <Navbar />
     <Hero />
     <About />
     <Experience />
