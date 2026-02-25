@@ -32,9 +32,14 @@ export function generateMetadata({
       locale: "en_US",
       type: "article",
       publishedTime: publishedAt,
-      url: "./",
+      url: `${siteMetadata.siteUrl}/blog/${slug}`,
       authors,
       tags,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   } as Metadata;
 }
@@ -71,8 +76,28 @@ export default function Page({ params }: { params: { slug: string[] } }) {
     title,
     description,
   };
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description,
+    datePublished: publishedAt,
+    author: authors.map((name) => ({ "@type": "Person", name })),
+    url: `${siteMetadata.siteUrl}/blog/${slug}`,
+    publisher: {
+      "@type": "Person",
+      name: siteMetadata.author,
+      url: siteMetadata.siteUrl,
+    },
+  };
+
   return (
     <div className="h-full min-h-[100vh]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PostLayout
         content={mainContent}
         authorsList={authors}
