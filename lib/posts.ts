@@ -1,69 +1,53 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import { createReader } from "@keystatic/core/reader";
+import keystaticConfig from "~/keystatic.config";
 
-interface PostData {
-  id: string;
+const reader = createReader(process.cwd(), keystaticConfig);
+
+export interface PostData {
   slug: string;
+  title: string;
   date: string;
-  title: string;
   description: string;
-  content: string;
-}
-type PostMetadata = {
-  slug: string;
-  title: string;
-  authors: string[];
-  tags: string[];
-};
-
-export const allPosts: PostMetadata[] = [
-  {
-    slug: "hello-world",
-    authors: ["Lucas Siqueira"],
-    title: "Hello World",
-    tags: [],
-  },
-];
-
-export function getSortedPostsData(): PostData[] {
-  const postsDirectory = path.resolve(process.cwd(), "data/posts");
-  const fileNames = fs.readdirSync(postsDirectory);
-
-  const allPostsData: PostData[] = fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, "");
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-    const matterResult = matter(fileContents);
-    return {
-      id,
-      slug: id,
-      content: matterResult.content.toString(),
-      ...matterResult.data,
-    } as PostData;
-  });
-
-  return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+  coverImage: string | null;
+  tags: readonly string[];
+  draft: boolean;
 }
 
-export function getPostsData(fileName: string): PostData {
-  const postPath = path.resolve(process.cwd(), "data/posts");
-  const id = fileName.replace(/\.md$/, "");
-  const fullPath = path.join(postPath, fileName);
+export async function getSortedPostsData(): Promise<PostData[]> {
+  const posts = await reader.collections.posts.all();
 
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  return posts
+    .filter((post) => !post.entry.draft)
+    .map((post) => ({
+      slug: post.slug,
+      title: post.entry.title,
+      date: post.entry.date ?? "",
+      description: post.entry.description,
+      coverImage: post.entry.coverImage ?? null,
+      tags: post.entry.tags,
+      draft: post.entry.draft,
+    }))
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+}
 
-  const matterResult = matter(fileContents);
+export async function getPostData(slug: string) {
+  const post = await reader.collections.posts.read(slug);
+  if (!post) return null;
+
+  const content = await post.content();
+
   return {
-    id,
-    slug: fullPath,
-    content: matterResult.content.toString(),
-    ...matterResult.data,
-  } as PostData;
+    slug,
+    title: post.title,
+    date: post.date ?? "",
+    description: post.description,
+    coverImage: post.coverImage ?? null,
+    tags: post.tags,
+    draft: post.draft,
+    content,
+  };
+}
+
+export async function getAllPostSlugs(): Promise<string[]> {
+  return reader.collections.posts.list();
 }

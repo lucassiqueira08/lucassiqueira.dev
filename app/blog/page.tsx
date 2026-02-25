@@ -5,9 +5,9 @@ const POSTS_PER_PAGE = 5;
 
 export const metadata = genPageMetadata({ title: "Blog" });
 
-function Blog() {
+async function Blog() {
   const pageNumber = 1;
-  const allPostsData = getSortedPostsData();
+  const allPostsData = await getSortedPostsData();
   const initialDisplayPosts = allPostsData.slice(
     POSTS_PER_PAGE * (pageNumber - 1),
     POSTS_PER_PAGE * pageNumber
@@ -16,9 +16,9 @@ function Blog() {
   return (
     <div className="py-8">
       <div className="flex flex-col">
-        {initialDisplayPosts?.map(({ id, date, title, slug }) => (
+        {initialDisplayPosts?.map(({ date, title, slug }) => (
           <a
-            key={id}
+            key={slug}
             href={`/blog/${slug}`}
             className="-mx-4 px-4 py-3 rounded-lg flex justify-between items-baseline gap-4 transition-colors duration-150 hover:bg-[#fafafa] group"
           >
