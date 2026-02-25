@@ -2,7 +2,7 @@ import { socials } from "~/constants";
 import styles from "~/styles";
 
 const Hero = () => (
-  <section className="py-20">
+  <section className="pt-20">
     <div className={styles.innerWidth}>
       <h1 className="text-3xl font-semibold text-[#171717] tracking-tight">
         Lucas Siqueira
