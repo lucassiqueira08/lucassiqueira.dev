@@ -24,7 +24,7 @@ const Experience = () => (
             </div>
             <details className="group/desc mt-1">
               <summary className="text-sm text-[#737373] leading-6 cursor-pointer select-none list-none hover:text-[#171717] transition-colors duration-150 flex items-baseline gap-1.5">
-                <span>{"summary" in item ? item.summary : item.description}</span>
+                <span>{item.summary}</span>
                 <span className="text-xs text-[#a3a3a3] shrink-0 group-open/desc:hidden">+</span>
                 <span className="text-xs text-[#a3a3a3] shrink-0 hidden group-open/desc:inline">−</span>
               </summary>
