@@ -1,53 +1,35 @@
-"use client";
-
-import { motion } from "framer-motion";
-
-import { slideIn, staggerContainer, textVariant } from "~/utils/motion";
+import { socials } from "~/constants";
 import styles from "~/styles";
 
 const Hero = () => (
-  <section className={`${styles.yPaddings} pl-6 sm:pl-16`}>
-    <motion.div
-      variants={{ ...staggerContainer }}
-      initial="hidden"
-      whileInView={"show"}
-      viewport={{ once: false, amount: 0.25 }}
-      className={`${styles.innerWidth} mx-auto flex flex-col items-center justify-center`}
-    >
-      <div className="relative flex h-full w-full items-center justify-center">
-        <motion.div
-          className={styles.fancyImageBorder}
-          variants={slideIn("up", "tween", 0.2, 0.2)}
-        >
-          <motion.img
-            src="/lucas.jpg"
-            alt="my photo"
-            className={styles.fancyImage}
-          />
-        </motion.div>
-      </div>
-      <div className="relative z-10 flex flex-col items-center justify-center">
-        <motion.div
-          variants={textVariant(1.2)}
-          className="mt-10 flex flex-col items-center justify-center"
-        >
-          <motion.h1 variants={textVariant(1.1)} className={styles.heroHeading}>
-            Welcome
-          </motion.h1>
-          <motion.h1 className="text-2xl font-bold uppercase text-fuchsia-700">
-            To my personal universe
-          </motion.h1>
-        </motion.div>
-      </div>
-      <div className="relative mb-20 flex justify-center align-text-top">
+  <section className="py-20">
+    <div className={styles.innerWidth}>
+      <h1 className="text-3xl font-semibold text-[#171717] tracking-tight">
+        Lucas Siqueira
+      </h1>
+      <p className="text-base text-[#737373] mt-2">
+        Product Engineer — São Paulo, Brasil
+      </p>
+      <div className="flex gap-2 flex-wrap mt-8">
         <a
-          className="mt-2 rounded-3xl bg-fuchsia-700 px-4 text-sm font-bold leading-10 text-gray-300"
           href="mailto:lucassiqueira.dev@gmail.com"
+          className="border border-[#e5e5e5] rounded-full px-3 py-1 text-sm text-[#171717] transition-colors duration-150 hover:bg-[#f5f5f5]"
         >
-          Contact me
+          Email
         </a>
+        {socials.map((social) => (
+          <a
+            key={social.name}
+            href={social.link}
+            target="_blank"
+            rel="noreferrer"
+            className="border border-[#e5e5e5] rounded-full px-3 py-1 text-sm text-[#171717] capitalize transition-colors duration-150 hover:bg-[#f5f5f5]"
+          >
+            {social.name}
+          </a>
+        ))}
       </div>
-    </motion.div>
+    </div>
   </section>
 );
 

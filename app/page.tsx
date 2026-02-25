@@ -1,23 +1,20 @@
 import { Footer, Navbar } from "../components";
-import { About, Console, Hero } from "../sections";
+import { About, Experience, Hero } from "../sections";
 
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Lucas | Dev",
+  title: "Lucas Siqueira",
   description:
-    "Welcome to my personal website, check out my journey and my thoughts on software development.",
+    "Full-stack developer from São Paulo, Brasil.",
 };
 
 const Page = () => (
-  <div className="overflow-hidden bg-primary-black">
+  <div>
     <Navbar />
     <Hero />
     <About />
-    <div className="relative">
-      <Console />
-      <div className="gradient-03 z-0" />
-    </div>
+    <Experience />
     <Footer />
   </div>
 );

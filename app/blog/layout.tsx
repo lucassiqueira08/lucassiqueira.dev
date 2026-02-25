@@ -1,39 +1,32 @@
 import { Footer } from "~/components";
-import Head from "./head";
+import styles from "~/styles";
+import Link from "next/link";
 
-export default function DashboardLayout({
+export default function BlogLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-primary-black">
-      <Head />
-      <div className="h-full min-h-[100vh]">
-        <section className={`h-full p-2`}>
-          <div
-            className={`mx-auto flex w-full justify-between gap-8 2xl:max-w-[1280px] px-4`}
+    <div className="min-h-screen flex flex-col">
+      <nav className="py-8 border-b border-[#e5e5e5]/60">
+        <div className={`${styles.innerWidth} flex justify-between items-center`}>
+          <Link
+            href="/"
+            className="text-[#171717] font-medium text-base transition-colors duration-150 hover:text-[#0a0a0a]"
           >
-            <a href="/" className="cursor-pointer" title="Back to home page">
-              <h2 className="text-[24px] font-extrabold leading-[30px] text-white">
-                Lucas Siqueira{" "}
-                <span className="align-middle text-sm">| Dev</span>
-              </h2>
-            </a>
-          </div>
-          <div
-            className={`mx-auto flex w-full justify-between gap-8 2xl:max-w-[1280px] px-4`}
+            Lucas Siqueira
+          </Link>
+          <Link
+            href="/blog"
+            className="text-sm text-[#737373] transition-colors duration-150 hover:text-[#0a0a0a]"
           >
-            <a href="/" className="cursor-pointer" title="Back to home page">
-              <span className="text-yellow-500">
-                I&apos;m building this blog ⚙️
-              </span>
-            </a>
-          </div>
-          <div className="flex justify-center">
-            {children}
-          </div>
-        </section>
+            Blog
+          </Link>
+        </div>
+      </nav>
+      <div className={`${styles.innerWidth} flex-1`}>
+        {children}
       </div>
       <Footer />
     </div>

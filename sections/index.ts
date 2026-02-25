@@ -1,5 +1,5 @@
 import Hero from "./Hero";
 import About from "./About";
-import Console from "./Console";
+import Experience from "./Experience";
 
-export { Hero, About, Console };
+export { Hero, About, Experience };

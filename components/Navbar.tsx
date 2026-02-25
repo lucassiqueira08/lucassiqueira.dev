@@ -1,44 +1,23 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { socials } from "~/constants";
-
 import styles from "~/styles";
-import { navVariants } from "~/utils/motion";
 
 const Navbar = () => (
-  <motion.nav
-    variants={navVariants}
-    initial="hidden"
-    whileInView={"show"}
-    className={`${styles.xPaddings} relative py-8`}
-  >
-    <div className="gradient-01 absolute inset-0 w-[50%]" />
-    <div className={`${styles.innerWidth} mx-auto flex justify-between gap-8`}>
-      <h2 className="text-[24px] font-extrabold leading-[30px] text-white">
-        Lucas Siqueira <span className="align-middle text-sm">| Dev</span>
-      </h2>
-      <div className="flex gap-4">
-        <Link href={'/blog'}>
-          <span className="text-white font-bold decoration-1">Blog</span>
-        </Link>
-        {socials.map((social) => (
-          <Link href={social.link} target="blank" key={social.name}>
-            <img
-              key={social.name}
-              src={social.url}
-              alt={social.name}
-              className="h-[24px] w-[24px] cursor-pointer object-contain"
-            />
-          </Link>
-        ))}
-      </div>
+  <nav className="py-8 border-b border-[#e5e5e5]/60">
+    <div className={`${styles.innerWidth} flex justify-between items-center`}>
+      <Link
+        href="/"
+        className="text-[#171717] font-medium text-base transition-colors duration-150 hover:text-[#0a0a0a]"
+      >
+        Lucas Siqueira
+      </Link>
+      <Link
+        href="/blog"
+        className="text-sm text-[#737373] transition-colors duration-150 hover:text-[#0a0a0a]"
+      >
+        Blog
+      </Link>
     </div>
-    <div className={`${styles.innerWidth} mx-auto flex justify-between gap-8`}>
-      <span className="text-yellow-500">I&apos;m building this site ⚙️</span>
-    </div>
-  </motion.nav>
+  </nav>
 );
 
 export default Navbar;

@@ -12,25 +12,22 @@ function Blog() {
     POSTS_PER_PAGE * (pageNumber - 1),
     POSTS_PER_PAGE * pageNumber
   );
-  const pagination = {
-    currentPage: pageNumber,
-    totalPages: Math.ceil(allPostsData.length / POSTS_PER_PAGE),
-  };
 
   return (
-    <div className="bg-primary-black h-inherit w-full items-center max-w-[1280px] flex flex-col gap-2 pt-8 p-8">
-      <div>
-        {initialDisplayPosts?.map(({ id, date, title, description, slug }) => (
-          <div key={id} className="py-4">
-            <a href={`/blog/${slug}`} className="text-purple-200 text-2xl hover:text-purple-500 hover:underline">{title}</a>
-            <p className="text-gray-200 text-sm py-2 text-justify">{description}</p>
-            <span className="text-gray-100 text-xs opacity-70">{date}</span>
-          </div>
+    <div className="py-8">
+      <div className="flex flex-col">
+        {initialDisplayPosts?.map(({ id, date, title, slug }) => (
+          <a
+            key={id}
+            href={`/blog/${slug}`}
+            className="-mx-4 px-4 py-3 rounded-lg flex justify-between items-baseline gap-4 transition-colors duration-150 hover:bg-[#fafafa] group"
+          >
+            <span className="text-sm font-medium text-[#171717] group-hover:text-[#0a0a0a]">
+              {title}
+            </span>
+            <span className="text-sm text-[#737373] shrink-0">{date}</span>
+          </a>
         ))}
-      </div>
-      <div className="flex gap-2 justify-start items-center">
-        <span className="text-white">Page</span>
-        <p className="text-white">{pagination.currentPage} - {pagination.totalPages}</p>
       </div>
     </div>
   );

@@ -1,15 +1,13 @@
 import "../styles/globals.css";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 const RootLayout = ({ children }: never) => (
   <html lang="en">
-    <head>
-      <link rel="preconnect" href="https://stijndv.com" />
-      <link
-        rel="stylesheet"
-        href="https://stijndv.com/fonts/Eudoxus-Sans.css"
-      />
-    </head>
-    <body className="bg-primary-black">{children}</body>
+    <body className={`${inter.className} bg-white text-[#171717] antialiased`}>
+      {children}
+    </body>
   </html>
 );
 
